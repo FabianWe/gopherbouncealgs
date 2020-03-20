@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package gopherbounce
+package gopherbouncealgs
 
 // Pow computes base**exp. It only works with positive integers.
 func Pow(base, exp int64) int64 {

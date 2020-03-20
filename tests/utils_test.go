@@ -21,3 +21,20 @@ func TestPow(t *testing.T) {
 		}
 	}
 }
+
+// TestCompareHashes tests utils.CompareHashes.
+func TestCompareHashes(t *testing.T) {
+	tests := []struct {
+		first, second []byte
+		out bool
+	}{
+		{[]byte("abcd"), []byte("abcd"), true},
+		{[]byte("abcd"), []byte("abc"), false},
+	}
+	for _, tc := range tests {
+		if got := gopherbouncealgs.CompareHashes(tc.first, tc.second); got != tc.out {
+			t.Errorf("Expected that (bytes of) %s == %s ==> %v, got %v", string(tc.first),
+				string(tc.second), tc.out, got)
+		}
+	}
+}
